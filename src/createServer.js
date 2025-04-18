@@ -19,6 +19,8 @@ function createServer() {
 
     if (!user) {
       res.sendStatus(404);
+
+      return;
     }
     res.send(user);
   });
@@ -28,6 +30,8 @@ function createServer() {
 
     if (!name) {
       res.sendStatus(400);
+
+      return;
     }
 
     const user = { name, id: users.length + 1 };
@@ -43,6 +47,8 @@ function createServer() {
 
     if (newUsers.length === users.length) {
       res.sendStatus(404);
+
+      return;
     }
     users = newUsers;
 
@@ -57,6 +63,8 @@ function createServer() {
 
     if (!user) {
       res.sendStatus(404);
+
+      return;
     }
 
     Object.assign(user, { name, id: +id });
@@ -96,6 +104,8 @@ function createServer() {
 
     if (!expense) {
       res.sendStatus(404);
+
+      return;
     }
     res.send(expense);
   });
@@ -113,6 +123,8 @@ function createServer() {
       !users.some((user) => user.id === +userId)
     ) {
       res.sendStatus(400);
+
+      return;
     }
 
     const expense = {
@@ -136,6 +148,8 @@ function createServer() {
 
     if (newExpenses.length === expenses.length) {
       res.sendStatus(404);
+
+      return;
     }
     expenses = newExpenses;
 
@@ -150,6 +164,8 @@ function createServer() {
 
     if (!expense) {
       res.sendStatus(404);
+
+      return;
     }
 
     if (spentAt !== undefined) {
